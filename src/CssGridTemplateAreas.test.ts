@@ -12,6 +12,22 @@ test('count rows', () => {
   expect(new CssGridTemplateAreas(gridTemplateString).rows()).toBe(3);
 });
 
+test('count columns per row', () => {
+  expect(new CssGridTemplateAreas(gridTemplateString).columnsPerRow()).toStrictEqual([3, 3, 3]);
+});
+
+test('is rectangular', () => {
+  expect(new CssGridTemplateAreas(gridTemplateString).isRectangular()).toBe(true);
+});
+
 test('count columns', () => {
-  expect(new CssGridTemplateAreas(gridTemplateString).columns()).toStrictEqual([3, 3, 3]);
+  expect(new CssGridTemplateAreas(gridTemplateString).columns()).toBe(3);
+});
+
+test('names of areas', () => {
+  expect(new CssGridTemplateAreas(gridTemplateString).namedAreas()).toEqual(new Set(['a', 'b', 'c']));
+});
+
+test('creates valid property value', () => {
+  expect(new CssGridTemplateAreas(gridTemplateString).toPropertyValue()).toBe(`"a a ." "a a ." ". b c"`);
 });
