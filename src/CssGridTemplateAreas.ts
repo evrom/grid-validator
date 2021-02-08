@@ -1,3 +1,5 @@
+import isEqual from 'lodash.isequal';
+
 class CssGridTemplateAreas {
   gridTemplate: string[][];
 
@@ -33,6 +35,32 @@ class CssGridTemplateAreas {
 
   toPropertyValue(): string {
     return this.gridTemplate.map(row => `"${row.join(' ')}"`).join(' ');
+  }
+
+  /** find if a named area is contigous and rectangular */
+  isContigous(name: string){
+    const indicesByRow: number[][] = this.gridTemplate.map(row => {
+      const indices: number[] = [];
+      let idx: number = row.indexOf(name);
+      while (idx !== -1) {
+        indices.push(idx);
+        idx = row.indexOf(name, idx + 1);
+      }
+      return indices;
+    })
+    for (let i: number = 0; i < indicesByRow.length - 1; i++) {
+      if (indicesByRow[i].length === 0 || indicesByRow[i + 1].length === 0){
+        continue;
+      }
+      if (!isEqual(indicesByRow[i], indicesByRow[i + 1])){
+        return false;
+      }
+    } 
+    return true;
+  }
+
+  findNotContigous(): Set<string> {
+    return new Set(Array.from(this.namedAreas()).filter(name => !this.isContigous(name)))
   }
 
   isValid(): boolean {
