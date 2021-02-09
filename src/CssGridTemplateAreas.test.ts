@@ -1,4 +1,5 @@
 import CssGridTemplateAreas from './CssGridTemplateAreas';
+import gridExamples from './gridExamples';
 
 const gridTemplateString = `           "a a ."
 "a a ."
@@ -53,6 +54,10 @@ test('find no non-contiguous areas', () => {
 
 test('find non-contiguous area', () => {
   expect(new CssGridTemplateAreas(`"a a ." "a a ." ". b a";`).findNotContiguous()).toEqual(new Set(['a']));
+});
+
+test('find non-contiguous area when area is not in an adjacent row', () => {
+  expect(new CssGridTemplateAreas(gridExamples['Not Contiguous']).findNotContiguous()).toEqual(new Set(['header']));
 });
 
 test('creates valid property value', () => {

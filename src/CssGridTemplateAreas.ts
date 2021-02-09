@@ -49,12 +49,14 @@ class CssGridTemplateAreas {
       }
       return indices;
     })
-    for (let i: number = 0; i < indicesByRow.length - 1; i++) {
-      if (indicesByRow[i].length === 0 || indicesByRow[i + 1].length === 0){
-        continue;
-      }
-      if (!isEqual(indicesByRow[i], indicesByRow[i + 1])){
-        return false;
+    for (let i: number = 0; i < indicesByRow.length; i++) {
+      for (let j: number = i + 1; j < indicesByRow.length; j++ ){
+        if (indicesByRow[i].length === 0 || indicesByRow[j].length === 0){
+          continue;
+        }
+        if (!isEqual(indicesByRow[i], indicesByRow[j])){
+          return false;
+        }
       }
     } 
     return true;
