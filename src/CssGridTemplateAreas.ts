@@ -39,7 +39,7 @@ class CssGridTemplateAreas {
   }
 
   /** find if a named area is contigous and rectangular */
-  isContigous(name: string){
+  isContiguous(name: string){
     const indicesByRow: number[][] = this.gridTemplate.map(row => {
       const indices: number[] = [];
       let idx: number = row.indexOf(name);
@@ -60,8 +60,8 @@ class CssGridTemplateAreas {
     return true;
   }
 
-  findNotContigous(): Set<string> {
-    return new Set(Array.from(this.namedAreas()).filter(name => !this.isContigous(name)))
+  findNotContiguous(): Set<string> {
+    return new Set(Array.from(this.namedAreas()).filter(name => !this.isContiguous(name)))
   }
 }
 

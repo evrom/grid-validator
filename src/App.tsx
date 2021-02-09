@@ -3,33 +3,40 @@ import './App.scss';
 import GridPreview from './GridPreview';
 import GridProperties from './GridProperties';
 import GridTable from './GridTable';
-import CssGridTemplateAreas from './CssGridTemplateAreas'
+import CssGridTemplateAreas from './CssGridTemplateAreas';
+import gridExamples from './gridExamples';
 
 function App() {
   const [gridInput, setGridInput] = useState(`"a a ."
 "a a ."
 ". b c";`);
-  const [grid, setGrid] = useState(new CssGridTemplateAreas(gridInput));
+  let grid = new CssGridTemplateAreas(gridInput);
 
   function onGridInputChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
     const input: string = e.target.value;
     setGridInput(input);
-    setGrid(new CssGridTemplateAreas(input));
   }
 
   return (
     <div className="App">
       <header>
         <h1>CSS Grid Template Validator & Preview</h1>
-        <p>Paste your <code>grid-template-areas</code> property value and see a preview and diagnosis what is wrong.</p>
+        <div>Paste your <code>grid-template-areas</code> property value and see a preview and diagnosis what is wrong.</div>
       </header>
       <main>
         <textarea onChange={onGridInputChange} value={gridInput}></textarea>
+        <div>Examples:
+          {Object.entries(gridExamples).map(([name, value]) => (
+            <button onClick={() => setGridInput(value)}>
+              {name}
+            </button>
+          ))}
+        </div>
         <GridProperties
           rows={grid.rows()}
           columnsPerRow={grid.columnsPerRow()}
           isRectangular={grid.isRectangular()}
-          nonContigousAreas={grid.findNotContigous()}
+          nonContigousAreas={grid.findNotContiguous()}
         />
         <GridPreview
           namedAreas={grid.namedAreas()}

@@ -39,20 +39,20 @@ test('names of areas', () => {
   expect(new CssGridTemplateAreas(gridTemplateString).namedAreas()).toEqual(new Set(['a', 'b', 'c']));
 });
 
-test('determine if named area is contigous', () => {
-  expect(new CssGridTemplateAreas(gridTemplateString).isContigous('a')).toEqual(true);
+test('determine if named area is contiguous', () => {
+  expect(new CssGridTemplateAreas(gridTemplateString).isContiguous('a')).toEqual(true);
 });
 
-test('determine that non contigous named area is not contigous', () => {
-  expect(new CssGridTemplateAreas(`"a a ." "a a ." ". b a";`).isContigous('a')).toEqual(false);
+test('determine that non contiguous named area is not contiguous', () => {
+  expect(new CssGridTemplateAreas(`"a a ." "a a ." ". b a";`).isContiguous('a')).toEqual(false);
 });
 
-test('find no non-contigous areas', () => {
-  expect(new CssGridTemplateAreas(gridTemplateString).findNotContigous()).toEqual(new Set());
+test('find no non-contiguous areas', () => {
+  expect(new CssGridTemplateAreas(gridTemplateString).findNotContiguous()).toEqual(new Set());
 });
 
-test('find non-contigous area', () => {
-  expect(new CssGridTemplateAreas(`"a a ." "a a ." ". b a";`).findNotContigous()).toEqual(new Set(['a']));
+test('find non-contiguous area', () => {
+  expect(new CssGridTemplateAreas(`"a a ." "a a ." ". b a";`).findNotContiguous()).toEqual(new Set(['a']));
 });
 
 test('creates valid property value', () => {

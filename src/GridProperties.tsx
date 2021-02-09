@@ -9,19 +9,19 @@ type GridPropertiesProps = {
   nonContigousAreas: Set<string>
 }
 
-function GridProperties({ rows, isRectangular, columnsPerRow, nonContigousAreas }: GridPropertiesProps) {
+function GridProperties({ rows, isRectangular, columnsPerRow, nonContigousAreas: nonContiguousAreas }: GridPropertiesProps) {
   return (
     <ul className="grid-properties">
       <li className={rows === 0 ? 'invalid' : ''}>has {rows} rows</li>
       <li className={!isRectangular ? 'invalid' : ''}>is {!isRectangular && 'not'} rectangular</li>
       <li className={!isRectangular ? 'invalid' : ''}>has {isRectangular ? columnsPerRow[0] : columnsPerRow.join(', ')} columns per row</li>
-      <li className={!isEmpty(nonContigousAreas) ? 'invalid' : ''}>
+      <li className={!isEmpty(nonContiguousAreas) ? 'invalid' : ''}>
         {
-          isEmpty(nonContigousAreas) ?
+          isEmpty(nonContiguousAreas) ?
             'All areas are contiguous and rectangular' :
             <>
-              The following areas are not contigous or rectangular:
-              {Array.from(nonContigousAreas).map((name: string) => <code>{name}</code>)}
+              The following areas are not contiguous or rectangular:
+              {Array.from(nonContiguousAreas).map((name: string) => <code>{name}</code>)}
             </>
         }
       </li>
