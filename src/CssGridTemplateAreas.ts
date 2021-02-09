@@ -1,11 +1,12 @@
 import isEqual from 'lodash.isequal';
+import compact from 'lodash.compact';
 
 class CssGridTemplateAreas {
   gridTemplate: string[][];
 
   constructor(gridTemplateString: string) {
     const rows = Array.from(gridTemplateString.matchAll(/["']([^"']*)["']/g)).map(match => match[1])
-    this.gridTemplate = rows.map(row => row.split(" "));
+    this.gridTemplate = rows.map(row => compact(row.trim().split(" ")));
   }
 
   rows(): number {
@@ -13,6 +14,7 @@ class CssGridTemplateAreas {
   }
 
   columnsPerRow(): number[] {
+    debugger;
     return this.gridTemplate.map((row, i) => row.length)
   }
 
@@ -61,19 +63,6 @@ class CssGridTemplateAreas {
 
   findNotContigous(): Set<string> {
     return new Set(Array.from(this.namedAreas()).filter(name => !this.isContigous(name)))
-  }
-
-  isValid(): boolean {
-    if (this.rows() < 1){
-      return false;
-    }
-    if (this.columnsPerRow()[0] < 1){
-      return false;
-    }
-    if (!this.isRectangular()){
-      return false;
-    }
-    return true;
   }
 }
 

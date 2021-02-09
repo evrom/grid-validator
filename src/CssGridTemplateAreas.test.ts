@@ -16,6 +16,17 @@ test('count columns per row', () => {
   expect(new CssGridTemplateAreas(gridTemplateString).columnsPerRow()).toStrictEqual([3, 3, 3]);
 });
 
+test('count columns per row with space', () => {
+  expect(new CssGridTemplateAreas(`"a a ."
+  "a a ."
+  ". b ";`).columnsPerRow()).toStrictEqual([3, 3, 2]);
+});
+
+test('count columns per row when empty string', () => {
+  expect(new CssGridTemplateAreas(`""`).columnsPerRow()).toStrictEqual([0]);
+});
+
+
 test('is rectangular', () => {
   expect(new CssGridTemplateAreas(gridTemplateString).isRectangular()).toBe(true);
 });
