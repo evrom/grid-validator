@@ -5,3 +5,19 @@
     background-color: purple;
   }
 }
+
+.grid-properties {
+  list-style: none;
+
+  & li {
+    
+    &::before {
+      content: "\2713";
+      color: green;
+    }
+    &.invalid::before {
+      content: "\2717";
+      color: red;
+    }
+  }
+}

@@ -11,11 +11,11 @@ type GridPropertiesProps = {
 
 function GridProperties({ rows, isRectangular, columnsPerRow, nonContigousAreas }: GridPropertiesProps) {
   return (
-    <ul>
-      <li>has {rows} rows</li>
-      <li>is {!isRectangular && 'not'} rectangular</li>
-      <li>has {isRectangular ? columnsPerRow[0] : columnsPerRow.join(', ')} columns per row</li>
-      <li>
+    <ul className="grid-properties">
+      <li className={rows === 0 ? 'invalid' : ''}>has {rows} rows</li>
+      <li className={!isRectangular ? 'invalid' : ''}>is {!isRectangular && 'not'} rectangular</li>
+      <li className={!isRectangular ? 'invalid' : ''}>has {isRectangular ? columnsPerRow[0] : columnsPerRow.join(', ')} columns per row</li>
+      <li className={!isEmpty(nonContigousAreas) ? 'invalid' : ''}>
         {
           isEmpty(nonContigousAreas) ?
             'All areas are contiguous and rectangular' :

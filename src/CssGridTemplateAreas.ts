@@ -14,7 +14,6 @@ class CssGridTemplateAreas {
   }
 
   columnsPerRow(): number[] {
-    debugger;
     return this.gridTemplate.map((row, i) => row.length)
   }
 

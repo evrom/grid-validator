@@ -10,6 +10,7 @@ function GridPreview({grid}: { grid: CssGridTemplateAreas }) {
     <div className="grid-preview-container">
       <div>
         <table>
+          <tbody>
           {grid.gridTemplate.map((row: string[], index: number) => (
             <tr key={index}>
               {row.map((name: string, index: number)  => (
@@ -17,6 +18,7 @@ function GridPreview({grid}: { grid: CssGridTemplateAreas }) {
               ))}
             </tr>
           ))}
+          </tbody>
         </table>
       </div>
       <div className="grid-preview" style={gridStyleNamedRegions}>
