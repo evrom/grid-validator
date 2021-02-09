@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.scss';
 import GridPreview from './GridPreview';
 import GridProperties from './GridProperties';
+import GridTable from './GridTable';
 import CssGridTemplateAreas from './CssGridTemplateAreas'
 
 function App() {
@@ -30,7 +31,11 @@ function App() {
           isRectangular={grid.isRectangular()}
           nonContigousAreas={grid.findNotContigous()}
         />
-        <GridPreview grid={grid}></GridPreview>
+        <GridPreview
+          namedAreas={grid.namedAreas()}
+          propertyValue={grid.toPropertyValue()}
+        />
+        <GridTable gridTemplate={grid.gridTemplate} />
       </main>
     </div>
   );

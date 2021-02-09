@@ -1,8 +1,19 @@
 .grid-preview {
+  border: 1px solid;
   display: grid;
-  background-color: red;
+  gap: 10px;
+  background-color: beige;
   & > div {
-    background-color: purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslategray;
+  }
+}
+
+.grid-table {
+  & td {
+    border: 1px solid;
   }
 }
 
