@@ -1,0 +1,7 @@
+.grid-preview {
+  display: grid;
+  background-color: red;
+  & > div {
+    background-color: purple;
+  }
+}
