@@ -2,19 +2,19 @@ import React from "react";
 
 import isEmpty from "lodash.isempty";
 
-type GridPropertiesProps = {
+type Props = {
   rows: number;
   isRectangular: boolean;
   columnsPerRow: number[];
   nonContigousAreas: Set<string>;
 };
 
-const GridProperties: React.FC<GridPropertiesProps> = ({
+const GridProperties: React.FC<Props> = ({
   rows,
   isRectangular,
   columnsPerRow,
   nonContigousAreas: nonContiguousAreas,
-}: GridPropertiesProps) => {
+}: Props) => {
   return (
     <ul className="grid-properties">
       <li className={rows === 0 ? "invalid" : ""}>has {rows} rows</li>
