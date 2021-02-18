@@ -9,7 +9,7 @@ type GridPropertiesProps = {
   nonContigousAreas: Set<string>
 }
 
-function GridProperties({ rows, isRectangular, columnsPerRow, nonContigousAreas: nonContiguousAreas }: GridPropertiesProps) {
+const GridProperties: React.FC<GridPropertiesProps> = ({ rows, isRectangular, columnsPerRow, nonContigousAreas: nonContiguousAreas }: GridPropertiesProps) => {
   return (
     <ul className="grid-properties">
       <li className={rows === 0 ? 'invalid' : ''}>has {rows} rows</li>
@@ -21,7 +21,7 @@ function GridProperties({ rows, isRectangular, columnsPerRow, nonContigousAreas:
             'All areas are contiguous and rectangular' :
             <>
               The following areas are not contiguous or rectangular:
-              {Array.from(nonContiguousAreas).map((name: string) => <code>{name}</code>)}
+              {Array.from(nonContiguousAreas).map((name: string) => <code key={name}>{name}</code>)}
             </>
         }
       </li>

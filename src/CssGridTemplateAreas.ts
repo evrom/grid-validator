@@ -14,7 +14,7 @@ class CssGridTemplateAreas {
   }
 
   columnsPerRow(): number[] {
-    return this.gridTemplate.map((row, i) => row.length)
+    return this.gridTemplate.map((row) => row.length)
   }
 
   isRectangular(): boolean {
@@ -39,7 +39,7 @@ class CssGridTemplateAreas {
   }
 
   /** find if a named area is contigous and rectangular */
-  isContiguous(name: string){
+  isContiguous(name: string): boolean {
     const indicesByRow: number[][] = this.gridTemplate.map(row => {
       const indices: number[] = [];
       let idx: number = row.indexOf(name);
@@ -49,7 +49,7 @@ class CssGridTemplateAreas {
       }
       return indices;
     })
-    for (let i: number = 0; i < indicesByRow.length; i++) {
+    for (let i = 0; i < indicesByRow.length; i++) {
       for (let j: number = i + 1; j < indicesByRow.length; j++ ){
         if (indicesByRow[i].length === 0 || indicesByRow[j].length === 0){
           continue;

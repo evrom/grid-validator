@@ -6,11 +6,10 @@ import GridTable from './GridTable';
 import CssGridTemplateAreas from './CssGridTemplateAreas';
 import gridExamples from './gridExamples';
 
-function App() {
-  const [gridInput, setGridInput] = useState(`"a a ."
-"a a ."
-". b c";`);
-  let grid = new CssGridTemplateAreas(gridInput);
+
+const App: React.FC = () => {
+  const [gridInput, setGridInput] = useState(gridExamples['Correct']);
+  const grid = new CssGridTemplateAreas(gridInput);
 
   function onGridInputChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
     const input: string = e.target.value;
@@ -27,7 +26,7 @@ function App() {
         <textarea onChange={onGridInputChange} value={gridInput}></textarea>
         <div>Examples:
           {Object.entries(gridExamples).map(([name, value]) => (
-            <button onClick={() => setGridInput(value)}>
+            <button key="name" onClick={() => setGridInput(value)}>
               {name}
             </button>
           ))}

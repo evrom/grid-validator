@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-type GridPreviewProps = {
+type Props = {
   propertyValue: string,
   namedAreas: Set<string>
 }
 
-function GridPreview({ propertyValue, namedAreas }: GridPreviewProps) {
+const GridPreview: React.FC<Props> = ({ propertyValue, namedAreas }: Props) => {
   const gridStyleNamedRegions = {
     gridTemplateAreas: propertyValue
   }
@@ -21,11 +21,11 @@ function GridPreview({ propertyValue, namedAreas }: GridPreviewProps) {
         {count > 0 ? <button onClick={() => setCount(count - 1)}>Remove grid child</button> : ''}
       </div>
       <div className="grid-preview" style={gridStyleNamedRegions}>
-        {Array.from(namedAreas).map((name: string, index: number) => {
+        {Array.from(namedAreas).map((name: string) => {
           return <div key={name} style={{ gridArea: `${name}` }}>{name}</div>
         })}
-        {Array.from(Array(count)).map(() => (
-          <div>.</div>
+        {Array.from(Array(count).keys()).map((i: number) => (
+          <div key={i}>.</div>
         ))}
       </div>
     </>

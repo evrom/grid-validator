@@ -1,10 +1,10 @@
 import React from 'react';
 
-type gridTemplateProps = {
+type Props = {
   gridTemplate: string[][]
 }
 
-function GridTable({ gridTemplate }: gridTemplateProps) {
+const GridTable: React.FC<Props> = ({ gridTemplate }: Props) => {
   return (
     <>
       <h2>View tabular rendering of grid</h2>
