@@ -1,5 +1,5 @@
 const gridExamples: Record<string, string> = {
-  "Correct": `"a a ."
+  Correct: `"a a ."
 "a a ."
 ". b c";`,
   "Not Rectangular": `'header header header header header header'
@@ -7,7 +7,7 @@ const gridExamples: Record<string, string> = {
 'menu footer footer footer footer';`,
   "Not Contiguous": `"header header header header"
 "main main . sidebar"
-"footer footer footer header";`
-}
+"footer footer footer header";`,
+};
 
-export default gridExamples
+export default gridExamples;

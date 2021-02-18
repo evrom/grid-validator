@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 type Props = {
-  propertyValue: string,
-  namedAreas: Set<string>
-}
+  propertyValue: string;
+  namedAreas: Set<string>;
+};
 
 const GridPreview: React.FC<Props> = ({ propertyValue, namedAreas }: Props) => {
   const gridStyleNamedRegions = {
-    gridTemplateAreas: propertyValue
-  }
+    gridTemplateAreas: propertyValue,
+  };
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -18,11 +18,19 @@ const GridPreview: React.FC<Props> = ({ propertyValue, namedAreas }: Props) => {
       <div>
         Rendered using CSS grid.
         <button onClick={() => setCount(count + 1)}>Add grid child</button>
-        {count > 0 ? <button onClick={() => setCount(count - 1)}>Remove grid child</button> : ''}
+        {count > 0 ? (
+          <button onClick={() => setCount(count - 1)}>Remove grid child</button>
+        ) : (
+          ""
+        )}
       </div>
       <div className="grid-preview" style={gridStyleNamedRegions}>
         {Array.from(namedAreas).map((name: string) => {
-          return <div key={name} style={{ gridArea: `${name}` }}>{name}</div>
+          return (
+            <div key={name} style={{ gridArea: `${name}` }}>
+              {name}
+            </div>
+          );
         })}
         {Array.from(Array(count).keys()).map((i: number) => (
           <div key={i}>.</div>
@@ -30,6 +38,6 @@ const GridPreview: React.FC<Props> = ({ propertyValue, namedAreas }: Props) => {
       </div>
     </>
   );
-}
+};
 
 export default GridPreview;

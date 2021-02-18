@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 type Props = {
-  gridTemplate: string[][]
-}
+  gridTemplate: string[][];
+};
 
 const GridTable: React.FC<Props> = ({ gridTemplate }: Props) => {
   return (
@@ -20,7 +20,7 @@ const GridTable: React.FC<Props> = ({ gridTemplate }: Props) => {
         </tbody>
       </table>
     </>
-  )
-}
+  );
+};
 
 export default GridTable;
