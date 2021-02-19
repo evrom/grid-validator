@@ -1,6 +1,6 @@
-# Getting Started with CSS Grid Validator
+# Grid Validator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Grid Validator validates, previews, and helps debug `grid-template-areas` CSS property values. Try it here: [https://gridvalidator.com/]
 
 ## Available Scripts
 
