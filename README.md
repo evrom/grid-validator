@@ -1,6 +1,6 @@
 # Grid Validator
 
-Grid Validator validates, previews, and helps debug `grid-template-areas` CSS property values. Try it here: [https://gridvalidator.com/]
+Grid Validator validates, previews, and helps debug `grid-template-areas` CSS property values. Try it here: https://gridvalidator.com/
 
 ## Features
 - checks syntax of property value
