@@ -2,6 +2,12 @@
 
 Grid Validator validates, previews, and helps debug `grid-template-areas` CSS property values. Try it here: [https://gridvalidator.com/]
 
+## Features
+- checks syntax of property value
+- checks that grid is rectangular
+- checks that grid areas are contiguous and rectangular 
+- renders preview of CSS grid
+
 ## Available Scripts
 
 In the project directory, you can run:
