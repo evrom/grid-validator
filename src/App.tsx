@@ -32,7 +32,7 @@ const App: React.FC = () => {
         <div>
           Examples:
           {Object.entries(gridExamples).map(([name, value]) => (
-            <button key="name" onClick={() => setGridInput(value)}>
+            <button key={name} onClick={() => setGridInput(value)}>
               {name}
             </button>
           ))}
