@@ -1,10 +1,13 @@
-name: Testing
+name: Tests
 
 on:
   workflow_dispatch:
   push:
     branches: [ master ]
   pull_request:
+
+env:
+  CI: true
 
 jobs:
   build:
