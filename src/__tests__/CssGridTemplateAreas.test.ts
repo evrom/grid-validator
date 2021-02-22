@@ -1,5 +1,5 @@
-import CssGridTemplateAreas from "./CssGridTemplateAreas";
-import gridExamples from "./gridExamples";
+import CssGridTemplateAreas from "../CssGridTemplateAreas";
+import gridExamples from "../gridExamples";
 
 const gridTemplateString = `           "a a ."
 "a a ."
