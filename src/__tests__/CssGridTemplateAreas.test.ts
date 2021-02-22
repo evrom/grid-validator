@@ -47,6 +47,12 @@ test("count columns", () => {
   expect(new CssGridTemplateAreas(gridTemplateString).columns()).toBe(3);
 });
 
+test("throw on non-rectangular", () => {
+  expect(() =>
+    new CssGridTemplateAreas(gridExamples["Not Rectangular"]).columns()
+  ).toThrow();
+});
+
 test("names of areas", () => {
   expect(new CssGridTemplateAreas(gridTemplateString).namedAreas()).toEqual(
     new Set(["a", "b", "c"])
