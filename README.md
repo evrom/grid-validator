@@ -1,6 +1,6 @@
 # Grid Validator
 
-[![Build Status](https://github.com/evrom/grid-validator/workflows/CI/badge.svg)](https://github.com/evrom/grid-validator/actions)
+![example branch parameter](https://github.com/evrom/grid-validator/actions/workflows/testing.yml/badge.svg)
 
 Grid Validator validates, previews, and helps debug `grid-template-areas` CSS property values. Try it here: https://gridvalidator.com/
 
