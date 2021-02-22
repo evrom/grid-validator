@@ -1,5 +1,7 @@
 # Grid Validator
 
+![Build Status](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+
 Grid Validator validates, previews, and helps debug `grid-template-areas` CSS property values. Try it here: https://gridvalidator.com/
 
 ## Features
