@@ -6,13 +6,51 @@ import CssGridTemplateAreas from "../CssGridTemplateAreas";
 
 it("GridProperties renders successfully", () => {
   const propertyValue: string = gridExamples["Correct"];
-  const cgta: CssGridTemplateAreas = new CssGridTemplateAreas(propertyValue);
+  const grid: CssGridTemplateAreas = new CssGridTemplateAreas(propertyValue);
   render(
     <GridProperties
-      rows={cgta.rows()}
-      isRectangular={cgta.isRectangular()}
-      columnsPerRow={cgta.columnsPerRow()}
-      nonContigousAreas={cgta.findNotContiguous()}
+      rows={grid.rows()}
+      isRectangular={grid.isRectangular()}
+      columnsPerRow={grid.columnsPerRow()}
+      nonContigousAreas={grid.findNotContiguous()}
+    />
+  );
+});
+
+it("GridProperties renders successfully with non-rectangular", () => {
+  const propertyValue: string = gridExamples["Not Rectangular"];
+  const grid: CssGridTemplateAreas = new CssGridTemplateAreas(propertyValue);
+  render(
+    <GridProperties
+      rows={grid.rows()}
+      isRectangular={grid.isRectangular()}
+      columnsPerRow={grid.columnsPerRow()}
+      nonContigousAreas={grid.findNotContiguous()}
+    />
+  );
+});
+
+it("GridProperties renders successfully with non-contiguous", () => {
+  const propertyValue: string = gridExamples["Not Contiguous"];
+  const grid: CssGridTemplateAreas = new CssGridTemplateAreas(propertyValue);
+  render(
+    <GridProperties
+      rows={grid.rows()}
+      isRectangular={grid.isRectangular()}
+      columnsPerRow={grid.columnsPerRow()}
+      nonContigousAreas={grid.findNotContiguous()}
+    />
+  );
+});
+
+it("GridProperties renders successfully with no rows", () => {
+  const grid: CssGridTemplateAreas = new CssGridTemplateAreas("");
+  render(
+    <GridProperties
+      rows={grid.rows()}
+      isRectangular={grid.isRectangular()}
+      columnsPerRow={grid.columnsPerRow()}
+      nonContigousAreas={grid.findNotContiguous()}
     />
   );
 });
