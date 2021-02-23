@@ -25,4 +25,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn --frozen-lockfile
-    - run: yarn test
+    - run: yarn test --coverage
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@v1.1.2
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+
