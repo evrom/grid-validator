@@ -2,7 +2,7 @@
 
 [![Build Status](https://github.com/evrom/grid-validator/actions/workflows/testing.yml/badge.svg)](https://github.com/evrom/grid-validator/actions/workflows/testing.yml?query=branch%3Amaster) [![Coverage Status](https://coveralls.io/repos/github/evrom/grid-validator/badge.svg?branch=master)](https://coveralls.io/github/evrom/grid-validator?branch=master)
 
-Grid Validator validates, previews, and helps debug `grid-template-areas` CSS property values. Try it here: https://gridvalidator.com/
+Grid Validator validates, previews, and helps debug `grid-template-areas` CSS property values. Try it here: [https://evrom.github.io/grid/](https://evrom.github.io/grid/)
 
 ## Features
 - checks syntax of property value
